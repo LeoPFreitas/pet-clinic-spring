@@ -1,4 +1,4 @@
-package com.lfreitas.petclinic.module;
+package com.lfreitas.petclinic.model;
 
 public class Person {
     private String firstName;

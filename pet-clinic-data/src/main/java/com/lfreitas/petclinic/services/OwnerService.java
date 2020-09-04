@@ -1,6 +1,6 @@
 package com.lfreitas.petclinic.services;
 
-import com.lfreitas.petclinic.module.Owner;
+import com.lfreitas.petclinic.model.Owner;
 
 import java.util.Set;
 

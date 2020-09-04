@@ -1,7 +1,7 @@
 package com.lfreitas.petclinic.services;
 
 
-import com.lfreitas.petclinic.module.Pet;
+import com.lfreitas.petclinic.model.Pet;
 
 import java.util.Set;
 
