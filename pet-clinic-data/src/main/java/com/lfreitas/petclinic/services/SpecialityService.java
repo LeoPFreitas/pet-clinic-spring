@@ -2,5 +2,5 @@ package com.lfreitas.petclinic.services;
 
 import com.lfreitas.petclinic.model.Speciality;
 
-public interface SpecialtiesService extends CrudService<Speciality, Long> {
+public interface SpecialityService extends CrudService<Speciality, Long> {
 }
