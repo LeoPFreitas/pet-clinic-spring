@@ -3,6 +3,7 @@ package com.lfreitas.petclinic.services;
 import java.util.Set;
 
 public interface CrudService<T, ID> {
+
     Set<T> findAll();
 
     T findById(ID id);
@@ -12,6 +13,4 @@ public interface CrudService<T, ID> {
     void delete(T object);
 
     void deleteById(ID id);
-
-
 }

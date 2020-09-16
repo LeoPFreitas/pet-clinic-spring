@@ -3,9 +3,11 @@ package com.lfreitas.petclinic.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+
 @Entity
 @Table(name = "visits")
 public class Visit extends BaseEntity {
+
     @Column(name = "date")
     private LocalDate date;
 
