@@ -2,7 +2,6 @@ package com.lfreitas.petclinic.controllers;
 
 import com.lfreitas.petclinic.model.Owner;
 import com.lfreitas.petclinic.services.OwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collection;
 import java.util.List;
 
 @RequestMapping("/owners")
@@ -44,7 +42,7 @@ public class OwnerController {
             owner.setLastName("");
         }
 
-        List<Owner> result = ownerService.findAllByLastNameLike(owner.getLastName());
+        List<Owner> result = ownerService.findAllByLastNameLikeIgnoreCase("%" + owner.getLastName() + "%");
 
         if (result.isEmpty()) {
             bindingResult.rejectValue("lastName", "notFound", "not found");

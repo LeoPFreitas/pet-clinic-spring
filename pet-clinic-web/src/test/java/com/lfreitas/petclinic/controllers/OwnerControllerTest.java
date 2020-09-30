@@ -2,7 +2,6 @@ package com.lfreitas.petclinic.controllers;
 
 import com.lfreitas.petclinic.model.Owner;
 import com.lfreitas.petclinic.services.OwnerService;
-import com.sun.xml.bind.v2.model.core.ID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,11 +13,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
@@ -54,7 +51,7 @@ class OwnerControllerTest {
     void FindOwners() throws Exception {
         mockMvc.perform(get("/owners/find"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("owners/findOnwers"))
+                .andExpect(view().name("owners/findOwners"))
                 .andExpect(model().attributeExists("owner"));
 
         verifyNoInteractions(ownerService);
@@ -62,7 +59,7 @@ class OwnerControllerTest {
 
     @Test
     void processFindFormReturnMany() throws Exception {
-        when(ownerService.findAllByLastNameLike(anyString()))
+        when(ownerService.findAllByLastNameLikeIgnoreCase(anyString()))
                 .thenReturn(Arrays.asList(Owner.builder().id(ID1).build(), Owner.builder().id(ID2).build()));
 
         mockMvc.perform(get("/owners"))
@@ -73,7 +70,7 @@ class OwnerControllerTest {
 
     @Test
     void processFindFormReturnOne() throws Exception {
-        when(ownerService.findAllByLastNameLike(anyString())).thenReturn(Arrays.asList(Owner.builder().id(ID1).build()));
+        when(ownerService.findAllByLastNameLikeIgnoreCase(anyString())).thenReturn(Arrays.asList(Owner.builder().id(ID1).build()));
 
         mockMvc.perform(get("/owners"))
                 .andExpect(status().is3xxRedirection())
