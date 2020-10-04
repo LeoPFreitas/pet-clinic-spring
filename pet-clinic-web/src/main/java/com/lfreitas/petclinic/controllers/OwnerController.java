@@ -56,8 +56,6 @@ public class OwnerController {
         }
     }
 
-
-
     @GetMapping("/{ownerId}")
     public ModelAndView showOwner(@PathVariable("ownerId") Long ownerId) {
         ModelAndView modelAndView = new ModelAndView("owners/ownerDetails");
